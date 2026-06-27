@@ -9,7 +9,7 @@ import (
 
 func main() {
 	if len(os.Args) > 1 {
-		router(os.Args[1]) // Ignore the first argument and accept the next X number of arguments. Ignore any afteer that.
+		router(os.Args[1]) // Ignore the first argument and accept the next X number of arguments. Ignore any after that.
 	} else {
 		fmt.Println("Please input a command.")
 	}
