@@ -34,7 +34,15 @@ func handleNow() {
 		fmt.Println("This is the error block.")
 		log.Fatal(err)
 	}
-	fmt.Println(req)
+
+	client := &http.Client{}
+
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer resp.Body.Close()
+	fmt.Println(resp)
 }
 
 func handleHelp() {
