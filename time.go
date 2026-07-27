@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"os"
@@ -37,12 +38,18 @@ func handleNow() {
 
 	client := &http.Client{}
 
-	resp, err := client.Do(req)
-	if err != nil {
+	response, error := client.Do(req)
+	if error != nil {
 		log.Fatal(err)
 	}
-	defer resp.Body.Close()
-	fmt.Println(resp)
+	defer response.Body.Close()
+
+	body, errorBody := io.ReadAll(response.Body)
+	if errorBody != nil {
+		log.Fatal(errorBody)
+	}
+
+	fmt.Println(string(body))
 }
 
 func handleHelp() {
