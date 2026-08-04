@@ -50,6 +50,17 @@ func handleNow() {
 	}
 
 	fmt.Println(string(body))
+
+	// type AstronautsResponse struct {
+	// 	People Person
+	// 	Number int
+	// 	Message string
+	// }
+
+	// type Person struct {
+	// 	Name string
+	// 	Craft string
+	// }
 }
 
 func handleHelp() {
